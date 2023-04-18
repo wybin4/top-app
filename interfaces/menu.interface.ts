@@ -1,4 +1,6 @@
-export interface Page {
+import { TopLevelCategory } from './page.interface';
+
+export interface PageItem {
 	alias: string;
 	title: string;
 	_id: string;
@@ -9,5 +11,13 @@ export interface MenuItem {
 	_id: {
 		secondCategory: string;
 	};
-	pages: Page[];
+	isOpened?: boolean;
+	pages: PageItem[];
+}
+
+export interface FirstLevelMenuItem {
+	route: string;
+	name: string;
+	icon: JSX.Element;
+	_id: TopLevelCategory;
 }
