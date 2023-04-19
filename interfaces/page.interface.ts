@@ -21,7 +21,7 @@ export interface HhData {
 }
 
 export interface TopPageModel {
-	tags: string;
+	tags: string[];
 	_id: {
 		secondCategory: string;
 	};

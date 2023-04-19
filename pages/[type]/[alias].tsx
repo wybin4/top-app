@@ -3,16 +3,19 @@ import { MenuItem } from '@component/interfaces/menu.interface';
 import { TopLevelCategory, TopPageModel } from '@component/interfaces/page.interface';
 import { ProductModel } from '@component/interfaces/product.interface';
 import { withLayout } from '@component/layout/Layout';
+import { TopPageComponent } from '@component/page-components';
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
-function TopPage({ menu, page, products }: TopPageProps): JSX.Element {
+function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
 
 	return (
-		<>
-			{products && products.length}
-		</>
+		<TopPageComponent
+			firstCategory={firstCategory}
+			page={page}
+			products={products}
+		/>
 	)
 };
 
