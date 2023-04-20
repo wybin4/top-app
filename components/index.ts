@@ -11,3 +11,4 @@ export * from './Search/Search';
 export * from './Product/Product';
 export * from './Divider/Divider';
 export * from './Review/Review';
+export * from './Up/Up';

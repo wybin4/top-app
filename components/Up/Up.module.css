@@ -1,18 +1,19 @@
-.p {
-	margin: 0;
+.up {
+	width: 40px;
+	height: 40px;
+
+	background: var(--primary);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+	border-radius: 10px;
+	border: none;
+
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+
+	cursor: pointer;
 }
 
-.s {
-	font-size: 14px;	
-	line-height: 24px;
-}
-
-.m {
-	font-size: 16px;
-	line-height: 24px;
-}
-
-.l {
-	font-size: 18px;	
-	line-height: 29px;
+.up:hover {
+	background: var(--primary-hover);
 }
