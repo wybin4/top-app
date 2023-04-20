@@ -293,3 +293,7 @@
 	border-bottom: 1px dashed var(--grey-light);
 	margin-bottom: 5px;
 }
+
+.reviewCount a {
+	color: var(--primary);
+}
