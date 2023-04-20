@@ -1,3 +1,4 @@
+import { API } from '@component/helpers/api';
 import { firstLevelMenu } from '@component/helpers/helpers';
 import { MenuItem } from '@component/interfaces/menu.interface';
 import { TopLevelCategory, TopPageModel } from '@component/interfaces/page.interface';
@@ -24,7 +25,7 @@ export default withLayout(TopPage);
 export const getStaticPaths: GetStaticPaths = async () => {
 	let paths: string[] = [];
 	for (const m of firstLevelMenu) {
-		const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+		const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
 			firstCategory: m._id
 		});
 		paths = paths.concat(menu.flatMap(s => s.pages.map(p => `/${m.route}/${p.alias}`)));
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
 		}
 	}
 	try {
-		const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+		const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
 			firstCategory: firstCategoryItem._id
 		});
 		if (menu.length == 0) {
@@ -57,8 +58,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
 				notFound: true
 			}
 		}
-		const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias);
-		const { data: products } = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find', {
+		const { data: page } = await axios.get<TopPageModel>(API.topPage.byAlias + params.alias);
+		const { data: products } = await axios.post<ProductModel[]>(API.product.find, {
 			category: page.category,
 			limit: 10
 		});

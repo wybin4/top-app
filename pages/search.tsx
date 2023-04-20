@@ -1,3 +1,4 @@
+import { API } from '@component/helpers/api';
 import { MenuItem } from '@component/interfaces/menu.interface';
 import { withLayout } from '@component/layout/Layout';
 import axios from 'axios';
@@ -13,7 +14,7 @@ export default withLayout(Search);
 
 export const getStaticProps: GetStaticProps = async () => {
 	const firstCategory = 0;
-	const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+	const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
 		firstCategory
 	})
 	return {
