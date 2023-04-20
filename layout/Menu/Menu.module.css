@@ -14,11 +14,12 @@
 	margin-top: 20px;
 }
 
-.firstLevelActive, .firstLevel:hover {
+.firstLevelActive,
+.firstLevel:hover {
 	color: var(--primary);
 }
 
-.firstLevelActive svg, 
+.firstLevelActive svg,
 .firstLevel:hover svg {
 	fill: var(--primary);
 }
@@ -36,13 +37,7 @@
 
 	color: var(--grey-dark);
 }
-.secondLevelBlock {
-	display: none;
-}
 
-.secondLevelBlockOpened {
-	display: block;
-}
 
 .secondBLock {
 	margin-left: 12px;
@@ -51,8 +46,8 @@
 	border-left: solid 1px #DFDFDF;
 }
 
-.secondLevelBlockOpened:last-child {
-	margin-bottom: 20px;
+.secondLevelBlock {
+	overflow: hidden;
 }
 
 .thirdLevel {
@@ -67,6 +62,7 @@
 	line-height: 19px;
 }
 
-.thirdLevelActive, .thirdLevel:hover {
+.thirdLevelActive,
+.thirdLevel:hover {
 	color: var(--primary);
 }

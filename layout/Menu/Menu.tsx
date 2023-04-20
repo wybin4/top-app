@@ -6,11 +6,34 @@ import { PageItem } from '@component/interfaces/menu.interface';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '@component/helpers/helpers';
-
+import { motion } from 'framer-motion';
 
 export const Menu = (): JSX.Element => {
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
 	const router = useRouter();
+
+	const variants = {
+		visible: {
+			marginBottom: 10,
+			transition: {
+				when: 'beforeChildren',
+				staggerChildren: 0.1
+			},
+		},
+		hidden: { marginBottom: 0 }
+	}
+
+	const variantsChild = {
+		visible: {
+			opacity: 1,
+			height: 29,
+
+		},
+		hidden: {
+			opacity: 0,
+			height: 0
+		}
+	}
 
 	const openSecondLevel = (secondCategory: string) => {
 		setMenu && setMenu(menu.map(m => {
@@ -52,11 +75,15 @@ export const Menu = (): JSX.Element => {
 							<div className={styles.secondLevel} onClick={() => openSecondLevel(m._id.secondCategory)}>
 								{m._id.secondCategory}
 							</div>
-							<div className={cn(styles.secondLevelBlock, {
-								[styles.secondLevelBlockOpened]: m.isOpened
-							})}>
+							<motion.div
+								layout
+								initial={m.isOpened ? 'visible' : 'hidden'}
+								animate={m.isOpened ? 'visible' : 'hidden'}
+								variants={variants}
+								className={cn(styles.secondLevelBlock)}
+							>
 								{buildThirdLevel(m.pages, route)}
-							</div>
+							</motion.div>
 						</div>
 					);
 				})}
@@ -66,11 +93,16 @@ export const Menu = (): JSX.Element => {
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
 		return (
 			pages.map(p => (
-				<Link key={p._id} href={'/' + route + '/' + p.alias} className={cn(styles.thirdLevel, {
-					[styles.thirdLevelActive]: '/' + route + '/' + p.alias == router.asPath,
-				})}>
-					{p.category}
-				</Link>
+				<motion.div
+					key={p._id}
+					variants={variantsChild}
+				>
+					<Link href={'/' + route + '/' + p.alias} className={cn(styles.thirdLevel, {
+						[styles.thirdLevelActive]: '/' + route + '/' + p.alias == router.asPath,
+					})}>
+						{p.category}
+					</Link>
+				</motion.div>
 			))
 		);
 	};
