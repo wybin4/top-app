@@ -12,7 +12,7 @@ import axios from 'axios';
 import { API } from '@component/helpers/api';
 import { useState } from 'react';
 
-export const ReviewForm = ({ productId, children, className, ...props }: ReviewFormProps): JSX.Element => {
+export const ReviewForm = ({ isOpened, productId, children, className, ...props }: ReviewFormProps): JSX.Element => {
 	const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
 
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -43,12 +43,14 @@ export const ReviewForm = ({ productId, children, className, ...props }: ReviewF
 					{...register('name', { required: { value: true, message: 'Введите имя' } })}
 					placeholder='Имя'
 					error={errors.name}
+					tabIndex={isOpened ? 0 : -1}
 				/>
 				<Input
 					{...register('title', { required: { value: true, message: 'Введите заголовок' } })}
 					className={styles.title}
 					placeholder='Заголовок отзыва'
 					error={errors.title}
+					tabIndex={isOpened ? 0 : -1}
 				/>
 				<div className={styles.rating}>
 					<span>Оценка:</span>
@@ -63,6 +65,7 @@ export const ReviewForm = ({ productId, children, className, ...props }: ReviewF
 								ref={field.ref}
 								setRating={field.onChange}
 								error={errors.rating}
+								tabIndex={isOpened ? 0 : -1}
 							/>
 						)}
 					/>
@@ -72,9 +75,10 @@ export const ReviewForm = ({ productId, children, className, ...props }: ReviewF
 					className={styles.description}
 					placeholder='Текст отзыва'
 					error={errors.description}
+					tabIndex={isOpened ? 0 : -1}
 				/>
 				<div className={styles.submit}>
-					<Button appearance='primary'>Отправить</Button>
+					<Button appearance='primary' tabIndex={isOpened ? 0 : -1}>Отправить</Button>
 					<span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
 				</div>
 			</div>
