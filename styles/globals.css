@@ -4,8 +4,7 @@ body {
 	padding: 0;
 
 	color: var(--black);
-	/*background-color: #F5F6F8;*/
-	background-color: white;
+	background-color: #F5F6F8;
 
 	font-family: var(--font-family);
 }
