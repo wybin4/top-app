@@ -6,8 +6,8 @@
 }
 
 .logo {
-	grid-column: start / logoend;
 	grid-row: 1 / span 2;
+	grid-column: start / logoend;
 }
 
 .title,
@@ -22,6 +22,7 @@
 .price,
 .priceTitle {
 	grid-column: pricestart / priceend;
+
 	white-space: nowrap;
 }
 
@@ -33,6 +34,7 @@
 .rating,
 .reviewCount {
 	grid-column: ratestart / end;
+
 	white-space: nowrap;
 }
 
@@ -48,16 +50,18 @@
 
 .advBlock {
 	grid-column: middle / end;
+
+	font-size: 16px;
+	line-height: 22px;
 }
 
 .reviews {
-	overflow: hidden;
 	padding: 30px;
+	overflow: hidden;
 }
 
-@media screen and (max-width: 1320px) {
+@media screen and (width <=1320px) {
 	.product {
-		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 		grid-template-areas:
 			"logo . title title title title title"
 			"logo . tags tags tags tags tags"
@@ -69,6 +73,7 @@
 			"advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
 			"hr2 hr2 hr2 hr2 hr2 hr2 hr2"
 			"actions actions actions actions actions actions actions";
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 	}
 
 	.logo {
@@ -138,9 +143,8 @@
 	}
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (width <=640px) {
 	.product {
-		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 		grid-template-areas:
 			"logo . title"
 			"logo . tags"
@@ -153,6 +157,7 @@
 			"advBlock advBlock advBlock"
 			"hr2 hr2 hr2"
 			"actions actions actions";
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
 	}
 
 	.price,
@@ -162,9 +167,8 @@
 	}
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (width <=480px) {
 	.product {
-		grid-template-columns: 1fr;
 		grid-template-areas:
 			"logo"
 			"title"
@@ -181,6 +185,7 @@
 			"advBlock"
 			"hr2"
 			"actions";
+		grid-template-columns: 1fr;
 	}
 
 	.price,
@@ -195,19 +200,21 @@
 }
 
 .title {
+
+	align-self: end;
+
 	font-weight: 600;
 	font-size: 20px;
 	line-height: 27px;
-
-	align-self: end;
 }
 
 .price,
 .credit {
-	font-size: 20px;
-	line-height: 27px;
 
 	align-self: end;
+
+	font-size: 20px;
+	line-height: 27px;
 }
 
 .oldPrice {
@@ -232,41 +239,40 @@
 }
 
 .description {
+	margin-bottom: 15px;
+
 	font-size: 16px;
 	line-height: 24px;
-	margin-bottom: 15px;
 }
 
 .reviewButton {
 	margin-left: 20px;
 }
 
-.advBlock {
-	font-size: 16px;
-	line-height: 22px;
-}
-
 .advTitle {
-	font-weight: 700;
 	margin-bottom: 5px;
+
+	font-weight: 700;
 }
 
 .advantages {
-	border-left: 2px solid var(--green);
-	padding-left: 15px;
 	margin-bottom: 20px;
+	padding-left: 15px;
+
+	border-left: 2px solid var(--green);
 }
 
 .disadvantages {
-	border-left: 2px solid var(--red);
 	padding-left: 15px;
+
+	border-left: 2px solid var(--red);
 }
 
 .characteristics {
 	display: grid;
 	grid-template-columns: auto 1fr auto;
-	padding-right: 60px;
 	align-items: baseline;
+	padding-right: 60px;
 
 	font-size: 16px;
 	line-height: 32px;
@@ -283,8 +289,9 @@
 }
 
 .characteristicsDots {
-	border-bottom: 1px dashed var(--grey-light);
 	margin-bottom: 5px;
+
+	border-bottom: 1px dashed var(--grey-light);
 }
 
 .reviewCount a {

@@ -5,8 +5,8 @@
 		"stylelint-config-css-modules"
 	],
 	"rules": {
+		"selector-class-pattern": "^[A-Za-z0-9]+([_-][A-Za-z0-9]+)*$",
 		"declaration-empty-line-before": null,
-		"indentation": 4,
 		"order/properties-order": [],
 		"plugin/rational-order": [
 			true,
