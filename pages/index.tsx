@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4);
-
   return (
     <>
       <Htag tag='h1'>Заголовок</Htag>
