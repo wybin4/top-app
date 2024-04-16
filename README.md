@@ -1,4 +1,4 @@
-# Учебный проект на NextJS
+# Копия учебного проекта на NextJS
 
 Полностью повторяет содержание курса [React + Next.js 13 - с нуля. TypeScript, Hooks, SSR и Grid](https://www.udemy.com/course/react-nextjs/) Антона Ларичева. Сделан исключительно для обучения.
 
